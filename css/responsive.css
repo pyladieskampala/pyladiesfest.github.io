@@ -1,0 +1,50 @@
+/** For the Responsiveness of the entire site **/
+@media only screen and (max-width: 1200px) {
+	.container {
+		width:1500px;
+	}
+	.topics{
+		display: inline-flex;
+		position: relative;
+	}
+}
+@media only screen and (max-width: 992px) {
+	.container {
+		width:728px;
+	}
+	.topics{
+		display: inline-flex;
+		position: relative;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.container {
+		width:560px;
+	}
+	.topics{
+		display: inline-flex;
+		position: relative;
+	}
+	.footer-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.container {
+		width:420px;
+	}
+	.topics{
+		display: inline-flex;
+		position: relative;
+	}
+}
+@media only screen and (max-width: 480px) {
+	.container {
+		width:90%;
+	}
+	.topics{
+		display: inline-flex;
+		position: relative;
+	}
+}

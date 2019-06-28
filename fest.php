@@ -1,0 +1,682 @@
+<?php 
+
+	define("TITLE", "Pyladies Fest");
+	date_default_timezone_set("Africa/Kampala");
+
+	include_once 'assets/dbhandler.php';
+		
+	$result = mysqli_query($conn, "SELECT * FROM `events` WHERE id ='1'");
+	$row = mysqli_fetch_object($result);
+
+?>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title><?php echo TITLE; ?></title>
+	<link href="css/fest.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<script src="assets/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="assets/timer.js" type="text/javascript"></script>
+	
+</head>
+<body class="container">
+
+	<section class="one">
+		<div id="header">
+			<div class="top-bar"></div>
+				<div class="fest-2019">
+					<h2 id="fest-head">Pyladies Fest 2019</h2>
+					<p class="d-date">5th August 2019 | OutBox Hub, Kampala</p>
+					<p class="fest-head-body">Pyladies Kampala chapter is conducting an annual conference full of well thought out talks(keynotes), workshops and open source sprint. 
+						<br>
+						
+					</p>
+
+					<p class="bouton"><a href="" class="register">Read more</a><button class="btn">Register</button></p>
+
+        			
+						
+				<div id="countdown" data-date="<?php /* Setting the timer to countdown */
+						
+						echo $row->eventDate;
+
+        			?>">
+
+        			<p id="demo"></p>
+
+					<script class="timer">
+						// Set the date we're counting down to
+						var countDownDate = new Date("Aug 6, 2019 09:00:00").getTime();
+
+						// Update the count down every 1 second
+						var x = setInterval(function() {
+
+  							// Get today's date and time
+  							var now = new Date().getTime();
+
+  							// Find the distance between now and the count down date
+  							var distance = countDownDate - now;
+
+  							// Time calculations for days, hours, minutes and seconds
+ 							var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  							var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  							var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  							var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  							// Display the result in the element with id="demo"
+  							document.getElementById("demo").innerHTML = days + "  " + hours + "  "
+  							+ minutes + "  " + seconds + "  ";
+
+  							// If the count down is finished, write some text 
+  								if (distance < 0) {
+
+    								clearInterval(x);
+    								document.getElementById("demo").innerHTML = "EXPIRED";
+  							}
+						}, 1000);
+					</script>
+
+
+	
+					
+				</div>
+				
+					<h4 class="ticker"><span>days</span> <span>hrs</span> <span>mins</span> <span>secs</span></h4>
+				
+				</div>
+		</div>
+	</section>
+
+	<section class="mid">		
+		<div class="side-bar">
+		
+				<div style="margin-top: 50px;">
+					
+					<ul style="padding-top: 50px;">
+						<li class="time">09:00 - 10:00</li>
+						<li class="time">10:00 - 10:30</li>
+						<li class="time">10:30 - 13:00</li>
+						<li class="time">13:00 - 13:55</li>
+						<li class="time">14:00 - 16:00</li>
+						<li class="time">16:00 - 17:00</li>
+					</ul>
+
+				</div>
+		</div>
+				
+				<!-- Grid -->
+	
+				<script type="text/javascript">
+					function openTable(pageName, event) {
+  						// Hide all elements with class="tabcontent" by default */
+  						var i, scheduleContent, tablinks;
+  						scheduleContent = document.getElementsByClassName("scheduleContent");
+  						for (i = 0; i < scheduleContent.length; i++) {
+    						scheduleContent[i].style.display = "none";
+  						}
+
+  						// Remove the background color of all tablinks/buttons
+  						tablinks = document.getElementsByClassName("tablink");
+  						for (i = 0; i < tablinks.length; i++) {
+    						tablinks[i].className = tablinks[i].className.replace(" active", "");
+  						}
+
+  						// Show the specific tab content
+  						document.getElementById(pageName).style.display = "block";
+  						event.currentTarget.className += " active";
+
+  						// Add the specific color to the button used to open the tab content
+  						
+					}
+
+						// Get the element with id="defaultOpen" and click on it
+						document.getElementById("defaultOpen").click();
+				</script>
+
+			<div class="grid-row">
+				<div class="schedule-layout topics">
+					
+						<button class="tablink" onclick="openTable('day1', event)" id="defaultOpen">Day One</button>
+						<button class="tablink" onclick="openTable('day2', event)">Day Two</button>
+						<button class="tablink" onclick="openTable('day3', event)">Day Three</button>
+						<button class="tablink" onclick="openTable('day4', event)">Day Four</button>
+						<button class="tablink" onclick="openTable('day5', event)">Day Five</button>
+					
+				</div>
+			<!-- Tables -->
+			<div class="scheduleContent defaultOpen" id="day1">
+				<div role="tabpanel" class="tab-pane fade show" id="schedule-day1" aria-expanded="true">
+					<div>
+						<table class="table table-responsive">
+							<tbody>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Breakfast
+													</h3>
+												</div>
+											</div>
+										</div>										
+									</td>					
+								</tr>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="speaker-img">
+													<img src="images/Joryne.jpg" alt="Keynote Speaker" class="round-image">
+												</div>
+												<div class="media-body">
+													<p>Morning Keynote with Eng. Joryne</p>
+												</div>
+											</div>
+										</div>										
+									</td>									
+								</tr>
+								<tr>									
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Data Science Workshop, Web Development Workshop and Open-Source Sprint 
+													</h3>
+												
+												</div>
+											</div>
+										</div>										
+									</td>								
+								</tr>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title lunch-break">
+														Lunch Break!
+													</h3>													
+												</div>
+											</div>
+										</div>										
+									</td>
+								</tr>
+								<tr>									
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Data Science Workshop, Web Development Workshop and Open-Source Sprint 
+													</h3>
+												
+												</div>
+											</div>
+										</div>										
+									</td>								
+								</tr>
+								<tr>
+									<td>									
+										<div class="schedule-info">
+											<div class="media">
+												<div class="speaker-img">
+													<img src="images/Joryne.jpg" alt="Keynote Speaker" class="round-image">
+												</div>
+												<div class="media-body">
+													<h3 class="title">
+														Afternoon Keynote
+													</h3>
+													<p>with Eng. Joryne</p>
+												</div>
+											</div>
+										</div>										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>				
+			</div>
+
+			<div class="scheduleContent" id="day2">
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade show" id="schedule-day1" aria-expanded="true">
+						<table class="table table-responsive">
+							<tbody>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Breakfast
+													</h3>
+												</div>
+											</div>
+										</div>										
+									</td>					
+								</tr>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="speaker-img">
+													<img src="images/Joryne.jpg" alt="Keynote Speaker" class="round-image">
+												</div>
+												<div class="media-body">
+													<p>Morning Keynote with Eng. Joryne</p>
+												</div>
+											</div>
+										</div>										
+									</td>									
+								</tr>
+								<tr>									
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Data Science Workshop, Web Development Workshop and Open-Source Sprint 
+													</h3>
+												
+												</div>
+											</div>
+										</div>										
+									</td>								
+								</tr>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title lunch-break">
+														Lunch Break!
+													</h3>													
+												</div>
+											</div>
+										</div>										
+									</td>
+								</tr>
+								<tr>									
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Data Science Workshop, Web Development Workshop and Open-Source Sprint 
+													</h3>
+												
+												</div>
+											</div>
+										</div>										
+									</td>								
+								</tr>
+								
+								<tr>					
+									<td>									
+										<div class="schedule-info">
+											<div class="media">
+												<div class="speaker-img">
+													<img src="images/Joryne.jpg" alt="Keynote Speaker" class="round-image">
+												</div>
+												<div class="media-body">
+													<h3 class="title">
+														Afternoon Keynote
+													</h3>
+													<p>with Eng. Joryne</p>
+												</div>
+											</div>
+										</div>										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+				</div>
+			</div>
+
+			<div class="scheduleContent" id="day3">
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade show" id="schedule-day1" aria-expanded="true">
+						<table class="table table-responsive">
+							<tbody>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Breakfast
+													</h3>
+												</div>
+											</div>
+										</div>										
+									</td>					
+								</tr>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="speaker-img">
+													<img src="images/Joryne.jpg" alt="Keynote Speaker" class="round-image">
+												</div>
+												<div class="media-body">
+													<p>Morning Keynote with Eng. Joryne</p>
+												</div>
+											</div>
+										</div>										
+									</td>									
+								</tr>
+								<tr>									
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Data Science Workshop, Web Development Workshop and Open-Source Sprint 
+													</h3>
+												
+												</div>
+											</div>
+										</div>										
+									</td>								
+								</tr>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title lunch-break">
+														Lunch Break!
+													</h3>													
+												</div>
+											</div>
+										</div>										
+									</td>
+								</tr>
+								<tr>									
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Data Science Workshop, Web Development Workshop and Open-Source Sprint 
+													</h3>
+												
+												</div>
+											</div>
+										</div>										
+									</td>								
+								</tr>
+								
+								<tr>					
+									<td>									
+										<div class="schedule-info">
+											<div class="media">
+												<div class="speaker-img">
+													<img src="images/Joryne.jpg" alt="Keynote Speaker" class="round-image">
+												</div>
+												<div class="media-body">
+													<h3 class="title">
+														Afternoon Keynote
+													</h3>
+													<p>with Eng. Joryne</p>
+												</div>
+											</div>
+										</div>										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+				</div>
+			</div>
+			<div class="scheduleContent" id="day4">
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade show active" id="schedule-day1" aria-expanded="true">
+						<table class="table table-responsive">
+							<tbody>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Breakfast
+													</h3>
+												</div>
+											</div>
+										</div>										
+									</td>					
+								</tr>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="speaker-img">
+													<img src="images/Joryne.jpg" alt="Keynote Speaker" class="round-image">
+												</div>
+												<div class="media-body">
+													<p>Morning Keynote with Eng. Joryne</p>
+												</div>
+											</div>
+										</div>										
+									</td>									
+								</tr>
+								<tr>									
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Data Science Workshop, Web Development Workshop and Open-Source Sprint 
+													</h3>
+												
+												</div>
+											</div>
+										</div>										
+									</td>								
+								</tr>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title lunch-break">
+														Lunch Break!
+													</h3>													
+												</div>
+											</div>
+										</div>										
+									</td>
+								</tr>
+								<tr>									
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Data Science Workshop, Web Development Workshop and Open-Source Sprint 
+													</h3>
+												
+												</div>
+											</div>
+										</div>										
+									</td>								
+								</tr>
+								
+								<tr>					
+									<td>									
+										<div class="schedule-info">
+											<div class="media">
+												<div class="speaker-img">
+													<img src="images/Joryne.jpg" alt="Keynote Speaker" class="round-image">
+												</div>
+												<div class="media-body">
+													<h3 class="title">
+														Afternoon Keynote
+													</h3>
+													<p>with Eng. Joryne</p>
+												</div>
+											</div>
+										</div>										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+				</div>
+			</div>
+
+			<div class="scheduleContent" id="day5">
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade show active" id="schedule-day1" aria-expanded="true">
+						<table class="table table-responsive">
+							<tbody>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Breakfast
+													</h3>
+												</div>
+											</div>
+										</div>										
+									</td>					
+								</tr>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="speaker-img">
+													<img src="images/Joryne.jpg" alt="Keynote Speaker" class="round-image">
+												</div>
+												<div class="media-body">
+													<p>Morning Keynote with Eng. Joryne</p>
+												</div>
+											</div>
+										</div>										
+									</td>									
+								</tr>
+								<tr>									
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Data Science Workshop, Web Development Workshop and Open-Source Sprint 
+													</h3>
+												
+												</div>
+											</div>
+										</div>										
+									</td>								
+								</tr>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title lunch-break">
+														Lunch Break!
+													</h3>													
+												</div>
+											</div>
+										</div>										
+									</td>
+								</tr>
+								<tr>
+									<td>										
+										<div class="schedule-info">
+											<div class="media">
+												<div class="item-content">
+													<h3 class="title">
+														Data Science Workshop, Web Development Workshop and Open-Source Sprint 
+													</h3>
+													
+												</div>
+											</div>
+										</div>										
+									</td>
+								</tr>
+								<tr>					
+									<td>									
+										<div class="schedule-info">
+											<div class="media">
+												<div class="speaker-img">
+													<img src="images/Joryne.jpg" alt="Keynote Speaker" class="round-image">
+												</div>
+												<div class="media-body">
+													<h3 class="title">
+														Afternoon Keynote
+													</h3>
+													<p>with Eng. Joryne</p>
+												</div>
+											</div>
+										</div>										
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+				</div>
+			</div>
+			
+	</section>
+
+	<section class="lower">
+		<div class="lower-mid">
+			<div>
+				<h3 class="thank-you">Thank You to Our Sponsors</h3>
+							
+			</div>
+			<div class="sponsors">
+				<img src="images/psfu.png">
+				<img src="">
+				<img src="">
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="footer-grid">
+		<div class="fest-footer-about">
+			<h3 class="footer-header">About Us</h3>
+			<p>Pyladies Kampala brings together a group of lady programmers in and around Kampala with the aim improving the skills of this group of programmers. We have grown to over 60 members and counting.</p>
+		</div>
+		<div class="fest-footer-links" style="padding-left: 50px;">
+			<h3 class="footer-header">Useful Links</h3>
+			<ul class="footer-links">				
+				<li>Python Libraries</li>
+				<li><a href="http://pystar.org/">Pystar.Org</a></li>
+				<li><a href="https://pycoders.com/">Pycoders Weekly</a></li>
+				<li><a href="http://weareallaweso.me/">Get Motivated!</a></li>
+			</ul>
+		</div>
+		<div class="fest-footer-pyevents">
+			<h3 class="footer-header">Python World Events</h3>
+			<ul class="footer-links">
+				<li><a href="http://2019.geopython.net/">GeoPython2019</a></li>
+				
+			</ul>
+		</div>
+		<div class="fest-footer-community">
+			<h3 class="footer-header">Community</h3>
+			<ul class="footer-links">
+				<li>Python Kampala</li>
+			</ul>
+		</div>
+		</div>
+	</footer>
+
+</body>
+</html>
